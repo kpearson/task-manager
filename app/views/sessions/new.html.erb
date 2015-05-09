@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col col-sm-6 col-sm-offset-3">
+    <h2>Log in</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-sm-6 col-sm-offset-3">
+    <div class="well">
+      <%= simple_form_for :user do |f| %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.button :submit, "Submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
