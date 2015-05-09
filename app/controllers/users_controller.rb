@@ -4,11 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new
+    user = User.new(user_params)
     if user.save
-      redirect_to task_lists_path, notice: "Welcome #{user.name}"
+      redirect_to root_path, notice: "Welcome #{user.name}"
     else
       redirect_to :back
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
   end
 end
