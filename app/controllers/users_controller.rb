@@ -6,9 +6,10 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
+      session[:user_id] = user.id
       redirect_to root_path, notice: "Welcome #{user.name}"
     else
-      redirect_to :back
+      redirect_to :back, notice: "Please enter valid information"
     end
   end
 
