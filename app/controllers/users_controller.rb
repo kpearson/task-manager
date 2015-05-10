@@ -4,11 +4,28 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new
+    user = User.new(user_params)
     if user.save
-      redirect_to task_lists_path, notice: "Welcome #{user.name}"
+      session[:user_id] = user.id
+      redirect_to root_path, notice: "Welcome #{user.name}"
     else
-      redirect_to :back
+      redirect_to :back, notice: "Please enter valid information"
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update_attributes(user_params)
+    redirect_to root_path, notice: "You have successfuly updated you info"
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
   end
 end

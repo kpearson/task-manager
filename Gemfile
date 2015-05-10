@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'puma'
 
 group :development, :test do
   gem 'pry'
@@ -22,5 +23,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'database_cleaner', '~> 1.4.1'
 end
 
