@@ -36,4 +36,16 @@ describe "Signed up user" do
     visit users_path(user)
     expect(page).to have_content "Edit Profile"
   end
+
+  it "see there list after loging in" do
+    user = create(:user)
+    create(:list, user: user)
+    # create(:task, list: list)
+    allow_any_instance_of(ApplicationController).
+      to receive(:current_user).and_return(user)
+    visit root_path
+    save_and_open_page
+    expect(page).to have_content "List One"
+    # expect(page).to have_content "Tast One"
+  end
 end
