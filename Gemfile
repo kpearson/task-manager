@@ -22,5 +22,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'database_cleaner', '~> 1.4.1'
 end
 

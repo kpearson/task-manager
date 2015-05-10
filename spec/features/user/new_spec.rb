@@ -3,7 +3,7 @@ require "rails_helper"
 describe "New user" do
   it "can sign up" do
     fill_in_new_user_form
-    expect(page).to have_content("Welcome Kit")
+    expect(page).to have_content "Welcome Kit"
   end
 
   it "is singned in when created" do

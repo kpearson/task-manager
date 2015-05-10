@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   post   "sign_in", to: "sessions#create"
   delete "sessions/destroy",            as: "sign_out"
 
-  resources :users, only: [:create, :edit]
+  resources :users, only: [:create, :edit, :update]
 end

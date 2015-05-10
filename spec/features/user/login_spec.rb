@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Returning user" do
+describe "Signed up user" do
   it "can login" do
     create(:user)
     visit root_path
@@ -9,5 +9,31 @@ describe "Returning user" do
     fill_in "user[password]", with: "password"
     click_button "Submit"
     expect(page).to have_content "Welcome back Kit!"
+  end
+
+  xit "can change name and email" do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).
+      to receive(:current_user).and_return(user)
+    visit edit_user_path(user)
+    puts user.id
+    puts user.name
+    fill_in "user_name",  with: "Bob"
+    fill_in "user_email", with: "bob@example.com"
+    click_button "Update User"
+    puts user.name
+    puts user.id
+    expect(page).to have_content "You have successfuly updated you info"
+    expect(user.name).to eq "Bob"
+  end
+
+  xit "can see their own profile page" do
+    user = create(:user)
+    visit users_path(user)
+    expect(page).not_to have_content "Edit Profile"
+    allow_any_instance_of(ApplicationController).to
+      receive(:current_user).and_return(user)
+    visit users_path(user)
+    expect(page).to have_content "Edit Profile"
   end
 end
