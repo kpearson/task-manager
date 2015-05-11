@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Lists" do
-  it "must have a user" do
+  it "must have a user and a due_date" do
     expect(List.create(title: "List One")).not_to be_valid
     user = create(:user)
     list = List.new(title: "List One", user: user)
@@ -17,4 +17,6 @@ describe "Lists" do
     create(:task, list: list)
     expect(list.tasks.count).to eq 3
   end
+
+
 end

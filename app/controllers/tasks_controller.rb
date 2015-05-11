@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
+    binding.pry
     if task.save
      new_task_mailer(task) if email_check(task)
       redirect_to list_path(params[:list_id])
@@ -42,7 +43,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.permit(:title, :description, :list_id)
+    params.permit(:title, :description, :list_id, :due_date)
   end
 
   def update_task_params

@@ -8,7 +8,8 @@
         <div class="input-group">
         <%= form_tag "/list/#{params[:list_id]}/tasks", method: "post" do %>
           <%= text_field_tag :title, nil, placeholder: "Task Title", class: "form-control" %>
-          <%= text_field_tag :description, nil, placeholder: "Task Discription", class: "form-control"  %>
+           <%= text_field_tag :description, nil, placeholder: "Task Description", class: "form-control"  %>
+           <%= date_field_tag "due_date", nil, class: "form-control" %>
           <%= submit_tag "Submit", name: nil, class: "btn" %>
         <% end %>
         </div>

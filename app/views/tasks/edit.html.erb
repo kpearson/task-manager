@@ -7,9 +7,10 @@
       <div class="panel-body">
         <div class="input-group">
           <%= form_for @task, url: "/list/#{@task.list_id}/tasks/#{@task.id}" do |f| %>
-          <%= f.text_field :title %>
-          <%= f.text_field :description %>
-          <%= f.submit %>
+          <%= f.text_field :title, class: "form-control" %>
+          <%= f.text_field :description, class: "form-control" %>
+          <%= f.date_field :due_date, class: "form-control" %>
+          <%= f.submit class: "btn" %>
         <% end %>
         </div>
       </div>
