@@ -5,7 +5,6 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    binding.pry
     if task.save
      new_task_mailer(task) if email_check(task)
       redirect_to list_path(params[:list_id])
