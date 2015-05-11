@@ -8,7 +8,7 @@ describe "Task" do
 
     list = create(:list)
     expect(Task.create(title: "Coding task",
-                       descripton: "Build a task manager",
+                       description: "Build a task manager",
                        list: list)
           ).to be_valid
   end
