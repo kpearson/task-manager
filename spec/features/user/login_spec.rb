@@ -39,12 +39,12 @@ describe "Signed up user" do
 
   it "see there list after loging in" do
     user = create(:user)
-    create(:list, user: user)
-    # create(:task, list: list)
+    list = create(:list, user: user)
+    create(:task, list: list)
     allow_any_instance_of(ApplicationController).
       to receive(:current_user).and_return(user)
     visit root_path
     expect(page).to have_content "List One"
-    # expect(page).to have_content "Tast One"
+    expect(page).to have_content "Task One"
   end
 end

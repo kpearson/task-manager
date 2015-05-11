@@ -28,5 +28,6 @@ describe "New user" do
     fill_in "user[email]",    with: "kit@kit.com"
     fill_in "user[password]", with: "password"
     click_button "Create User"
+    expect(page).to have_content "Welcome Kit"
   end
 end
