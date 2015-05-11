@@ -15,7 +15,7 @@ class ListsController < ApplicationController
   def archive
     list = List.find(params[:id])
     list.update_attributes(archived: params[:archived])
-    redirect_to root_path, notice: "#{list.title} has been archived"
+    redirect_to root_path, alert: "#{list.title} has been archived"
   end
 
   def create
