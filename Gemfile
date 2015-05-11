@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'puma'
+gem "rails_12factor"
 
 group :development, :test do
   gem 'pry'
