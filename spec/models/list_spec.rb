@@ -9,4 +9,12 @@ describe "Lists" do
     expect(list.user.name).to eq "Kit"
     expect(list.archived).to eq false
   end
+
+  it "can have many tasks" do
+    list = create(:list)
+    create(:task, list: list)
+    create(:task, list: list)
+    create(:task, list: list)
+    expect(list.tasks.count).to eq 3
+  end
 end

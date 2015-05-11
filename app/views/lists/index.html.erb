@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">To add a task, please choose a list or create a new one.</div>
+      <%= render partial: "new_list_form" %>
+      <ul class="list-group">
+      <% @lists.each do |list| %>
+        <li class="list-group-item"><h4><%= link_to list.title, new_list_task_path(list.id), class: "panel-body" %></h4></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

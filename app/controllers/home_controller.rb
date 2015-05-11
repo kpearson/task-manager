@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @lists = List.all
+    @lists = List.unarchived(current_user)
   end
 end
