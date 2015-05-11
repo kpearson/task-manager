@@ -37,7 +37,7 @@ describe "Signed up user" do
     expect(page).to have_content "Edit Profile"
   end
 
-  it "see there list after loging in" do
+  it "see there lists after loging in" do
     user = create(:user)
     list = create(:list, user: user)
     create(:task, list: list)

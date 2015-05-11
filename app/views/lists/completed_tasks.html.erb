@@ -20,7 +20,7 @@
           <tr>
             <td><%= task.title %></td>
             <td><%= task.description %></td>
-            <td><%= "#" %></td>
+            <td><%= task.due_date %></td>
             <td><%= link_to "Incomplete",
               complete_task_path(list_id: @list.id,
                                  id: task.id,

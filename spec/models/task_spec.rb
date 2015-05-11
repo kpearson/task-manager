@@ -12,4 +12,9 @@ describe "Task" do
                        list: list)
           ).to be_valid
   end
+
+  it "has a due date" do
+    task = create(:task)
+    expect(task.due_date).to eq "2015-05-11 14:02:23 -0600"
+  end
 end
