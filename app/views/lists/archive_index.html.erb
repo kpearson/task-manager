@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col col-sm-8 col-sm-offset-2">
+    <% @lists.each do |list| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2><%= link_to list.title, list_path(list) %>
+          <span class="pull-right">
+            <%= button_to "Delete List",
+              "/lists/#{list.id}",
+              method: "delete",
+              class: "btn btn-danger form-inline" %>
+          </span>
+          <span class="pull-right">
+            <%= button_to 'Unarchive List',
+              archive_list_path(list.id, archived: false),
+              method: "put",
+              class: "btn btn-default" %>
+          </span>
+          </h2>
+        </div>
+        <%= render partial: "active_tasks", locals: { list: list } %>
+      </div>
+    <% end %>
+  </div>
+</div>
